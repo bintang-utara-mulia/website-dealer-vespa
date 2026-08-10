@@ -31,9 +31,12 @@
                         Skuter ikonik dengan desain elegan dan nyaman digunakan untuk aktivitas sehari-hari.
                     </p>
 
-                    <button class="mt-6 bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800">
+                    <a href="{{ url('/primavera') }}"
+                        class="mt-6 inline-block bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 hover:scale-105 transition duration-300">
+
                         Lihat Detail
-                    </button>
+
+                    </a>
 
                 </div>
 
@@ -56,9 +59,12 @@
                         Tampil sporty dengan performa yang responsif untuk menemani perjalanan Anda.
                     </p>
 
-                    <button class="mt-6 bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800">
+                    <a href="{{ url('/sprint') }}"
+                        class="mt-6 inline-block bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 hover:scale-105 transition duration-300">
+
                         Lihat Detail
-                    </button>
+
+                    </a>
 
                 </div>
 
@@ -81,9 +87,12 @@
                         Vespa premium dengan mesin bertenaga serta fitur modern untuk pengalaman berkendara terbaik.
                     </p>
 
-                    <button class="mt-6 bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800">
+                    <a href="{{ url('/gts') }}"
+                        class="mt-6 inline-block bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 hover:scale-105 transition duration-300">
+
                         Lihat Detail
-                    </button>
+
+                    </a>
 
                 </div>
 
