@@ -1,173 +1,121 @@
-<nav class="bg-white shadow-md sticky top-0 z-50">
+<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4">
 
-        <div class="relative flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-16">
 
-            <!-- LOGO -->
-            <div class="flex-shrink-0">
+            <!-- Logo -->
+            <a
+                href="#hero"
+                class="text-2xl font-bold tracking-wide text-black
+           transition duration-300 hover:scale-105">
 
-                <a href="{{ url('/') }}"
-                    class="text-3xl font-bold tracking-wide text-gray-900">
+                VESPA
 
-                    Vespa
-
-                </a>
-
-            </div>
+            </a>
 
 
-            <!-- DESKTOP MENU -->
-            <div class="hidden md:flex absolute left-1/2
-                        -translate-x-1/2 items-center gap-8">
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center gap-8 font-medium">
 
-                <a
-                    href="{{ url('/') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
+                <li>
+                    <a
+                        href="{{ url('/') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-                    Home
+                        Home
 
-                </a>
-
-
-                <a
-                    href="{{ url('/about') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
-
-                    Tentang Kami
-
-                </a>
+                    </a>
+                </li>
 
 
-                <a
-                    href="{{ url('/products') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
+                <li>
+                    <a
+                        href="{{ url('/about') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-                    Produk
+                        Tentang Kami
 
-                </a>
-
-
-                <a
-                    href="{{ url('/promo') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
-
-                    Promo
-
-                </a>
+                    </a>
+                </li>
 
 
-                <a
-                    href="{{ url('/faq') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
+                <li>
+                    <a
+                        href="{{ url('/products') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-                    FAQ
+                        Produk
 
-                </a>
-
-
-                <a
-                    href="{{ url('/contact') }}"
-                    class="text-gray-700 hover:text-green-700
-                           transition font-medium">
-
-                    Kontak
-
-                </a>
-
-            </div>
+                    </a>
+                </li>
 
 
-            <!-- MOBILE BUTTON -->
-            <button
-                type="button"
-                onclick="toggleMobileMenu()"
-                class="md:hidden text-gray-700 text-2xl
-                       focus:outline-none">
+                <li>
+                    <a
+                        href="{{ url('/promo') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-                ☰
+                        Promo
 
-            </button>
-
-        </div>
+                    </a>
+                </li>
 
 
-        <!-- MOBILE MENU -->
-        <div
-            id="mobileMenu"
-            class="hidden md:hidden pb-5">
+                <li>
+                    <a
+                        href="{{ url('/faq') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-            <div class="flex flex-col gap-2">
+                        FAQ
 
-                <a
-                    href="{{ url('/') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
-
-                    Home
-
-                </a>
+                    </a>
+                </li>
 
 
-                <a
-                    href="{{ url('/about') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
+                <li>
+                    <a
+                        href="{{ url('/contact') }}"
+                        class="hover:text-green-700 transition duration-300">
 
-                    Tentang Kami
+                        Kontak
 
-                </a>
+                    </a>
+                </li>
 
-
-                <a
-                    href="{{ url('/products') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
-
-                    Produk
-
-                </a>
+            </ul>
 
 
-                <a
-                    href="{{ url('/promo') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
+            <!-- Bagian Kanan -->
+            <div class="flex items-center">
 
-                    Promo
-
-                </a>
-
-
-                <a
-                    href="{{ url('/faq') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
-
-                    FAQ
-
-                </a>
-
-
+                <!-- Tombol Hubungi Kami -->
                 <a
                     href="{{ url('/contact') }}"
-                    class="px-4 py-3 rounded-lg
-                           text-gray-700 hover:bg-gray-100
-                           hover:text-green-700">
+                    class="hidden md:block
+                           bg-green-700 text-white
+                           px-5 py-2 rounded-lg
+                           hover:bg-green-800
+                           hover:scale-105
+                           transition duration-300">
 
-                    Kontak
+                    Hubungi Kami
 
                 </a>
+
+
+                <!-- Hamburger Mobile -->
+                <button
+                    id="menu-btn"
+                    type="button"
+                    class="md:hidden ml-4
+                           text-3xl text-green-700
+                           transition duration-300
+                           hover:scale-110">
+
+                    ☰
+
+                </button>
 
             </div>
 
@@ -175,15 +123,121 @@
 
     </div>
 
+
+    <!-- Mobile Menu -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-md">
+
+        <a
+            href="{{ url('/') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            Home
+
+        </a>
+
+
+        <a
+            href="{{ url('/about') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            Tentang Kami
+
+        </a>
+
+
+        <a
+            href="{{ url('/products') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            Produk
+
+        </a>
+
+
+        <a
+            href="{{ url('/promo') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            Promo
+
+        </a>
+
+
+        <a
+            href="{{ url('/faq') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            FAQ
+
+        </a>
+
+
+        <a
+            href="{{ url('/contact') }}"
+            class="block px-6 py-3
+                   hover:bg-gray-100
+                   hover:text-green-700
+                   transition duration-300">
+
+            Kontak
+
+        </a>
+
+    </div>
+
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const menuBtn = document.getElementById('menu-btn');
+
+            const mobileMenu = document.getElementById('mobile-menu');
+
+
+            if (menuBtn && mobileMenu) {
+
+                menuBtn.addEventListener('click', function() {
+
+                    mobileMenu.classList.toggle('hidden');
+
+                });
+
+
+                const mobileLinks =
+                    mobileMenu.querySelectorAll('a');
+
+
+                mobileLinks.forEach(function(link) {
+
+                    link.addEventListener('click', function() {
+
+                        mobileMenu.classList.add('hidden');
+
+                    });
+
+                });
+
+            }
+
+        });
+    </script>
+
 </nav>
-
-
-<script>
-    function toggleMobileMenu() {
-
-        const menu = document.getElementById('mobileMenu');
-
-        menu.classList.toggle('hidden');
-
-    }
-</script>
