@@ -23,7 +23,10 @@ return [
             'with' => [
                 'stream' => 'php://stderr',
             ],
-            'processors' => [PsrLogMessageProcessor::class],
+            'formatter' => env('LOG_STDERR_FORMATTER'),
+            'processors' => [
+                PsrLogMessageProcessor::class,
+            ],
         ],
 
         'stack' => [
