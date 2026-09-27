@@ -12,4 +12,7 @@ try {
     echo '<p><strong>Message:</strong> ' . htmlspecialchars($e->getMessage()) . '</p>';
     echo '<p><strong>File:</strong> ' . htmlspecialchars($e->getFile()) . '</p>';
     echo '<p><strong>Line:</strong> ' . $e->getLine() . '</p>';
+
+    echo '<h2>Stack Trace</h2>';
+    echo '<pre>' . htmlspecialchars($e->getTraceAsString()) . '</pre>';
 }
