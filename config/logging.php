@@ -7,14 +7,50 @@ use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
 
-    'default' => 'errorlog',
+    /*
+    |--------------------------------------------------------------------------
+    | Default Log Channel
+    |--------------------------------------------------------------------------
+    */
+
+    'default' => env('LOG_CHANNEL', 'errorlog'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Deprecations
+    |--------------------------------------------------------------------------
+    */
 
     'deprecations' => [
         'channel' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
         'trace' => env('LOG_DEPRECATIONS_TRACE', false),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Log Channels
+    |--------------------------------------------------------------------------
+    */
+
     'channels' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Error Log - Aman untuk Vercel
+        |--------------------------------------------------------------------------
+        */
+
+        'errorlog' => [
+            'driver' => 'errorlog',
+            'level' => env('LOG_LEVEL', 'debug'),
+            'replace_placeholders' => true,
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Stderr - Aman untuk Vercel
+        |--------------------------------------------------------------------------
+        */
 
         'stderr' => [
             'driver' => 'monolog',
@@ -29,17 +65,37 @@ return [
             ],
         ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Stack
+        |--------------------------------------------------------------------------
+        */
+
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', (string) env('LOG_STACK', 'single')),
+            'channels' => ['errorlog'],
             'ignore_exceptions' => false,
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Single
+        |--------------------------------------------------------------------------
+        */
 
         'single' => [
             'driver' => 'errorlog',
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Daily
+        |--------------------------------------------------------------------------
+        | Jangan digunakan sebagai default di Vercel karena menulis
+        | ke storage/logs/laravel.log
+        */
 
         'daily' => [
             'driver' => 'daily',
@@ -48,6 +104,12 @@ return [
             'days' => env('LOG_DAILY_DAYS', 14),
             'replace_placeholders' => true,
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Slack
+        |--------------------------------------------------------------------------
+        */
 
         'slack' => [
             'driver' => 'slack',
@@ -58,6 +120,12 @@ return [
             'replace_placeholders' => true,
         ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Papertrail
+        |--------------------------------------------------------------------------
+        */
+
         'papertrail' => [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
@@ -67,26 +135,40 @@ return [
                 'port' => env('PAPERTRAIL_PORT'),
                 'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
-            'processors' => [PsrLogMessageProcessor::class],
+            'processors' => [
+                PsrLogMessageProcessor::class,
+            ],
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Syslog
+        |--------------------------------------------------------------------------
+        */
 
         'syslog' => [
             'driver' => 'syslog',
             'level' => env('LOG_LEVEL', 'debug'),
-            'facility' => env('LOG_SYSLOG_FACILITY', LOG_USER),
+            'facility' => LOG_USER,
             'replace_placeholders' => true,
         ],
 
-        'errorlog' => [
-            'driver' => 'errorlog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'replace_placeholders' => true,
-        ],
+        /*
+        |--------------------------------------------------------------------------
+        | Null
+        |--------------------------------------------------------------------------
+        */
 
         'null' => [
             'driver' => 'monolog',
             'handler' => NullHandler::class,
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Emergency
+        |--------------------------------------------------------------------------
+        */
 
         'emergency' => [
             'path' => '/tmp/laravel.log',
